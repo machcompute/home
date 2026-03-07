@@ -96,7 +96,31 @@ const SKILLS = [
   "Git",
 ];
 
-export default function Home() {
+type Project = {
+  name: string;
+  slug: string;
+  description: string;
+  url: string;
+  tags: string[];
+  year: number;
+};
+
+async function fetchProjects(): Promise<Project[]> {
+  try {
+    const base = process.env.PROJECTS_BASE;
+    const res = await fetch(`${base}/api/projects`, {
+      next: { revalidate: 3600 },
+    });
+    if (!res.ok) return [];
+    return res.json();
+  } catch {
+    return [];
+  }
+}
+
+export default async function Home() {
+  const projects = await fetchProjects();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
@@ -235,8 +259,43 @@ export default function Home() {
             Projects
           </h2>
           <p className="mt-3 text-mc-gray text-lg max-w-2xl">
-            Coming soon.
+            Interactive tools and experiments.
           </p>
+          {projects.length > 0 ? (
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((project) => (
+                <a
+                  key={project.slug}
+                  href={project.url}
+                  className="group p-6 rounded-2xl border border-mc-gray/15 bg-white hover:border-mc-mint/40 transition-colors"
+                >
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-lg font-semibold text-mc-dark group-hover:text-mc-lavender transition-colors">
+                      {project.name}
+                    </h3>
+                    <span className="text-sm font-mono text-mc-gray/50">
+                      {project.year}
+                    </span>
+                  </div>
+                  <p className="mt-3 text-sm text-mc-gray leading-relaxed">
+                    {project.description}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs font-medium px-2.5 py-1 rounded-full bg-mc-lavender/15 text-mc-dark/70"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-6 text-mc-gray">Coming soon.</p>
+          )}
         </div>
       </section>
 
