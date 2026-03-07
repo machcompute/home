@@ -109,7 +109,7 @@ async function fetchProjects(): Promise<Project[]> {
   try {
     const base = process.env.PROJECTS_BASE;
     const res = await fetch(`${base}/api/projects`, {
-      next: { revalidate: 3600 },
+      next: { revalidate: 300 },
     });
     if (!res.ok) return [];
     return res.json();
