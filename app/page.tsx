@@ -277,7 +277,7 @@ export default async function Home() {
               {projects.map((project) => (
                 <a
                   key={project.slug}
-                  href={project.url}
+                  href={`${projectsBase}${project.url}`}
                   className="group p-6 rounded-2xl border border-mc-gray/15 bg-white hover:border-mc-mint/40 transition-colors"
                 >
                   <div className="flex items-center justify-between">
