@@ -81,64 +81,19 @@ function GeometricGrid() {
   );
 }
 
-const BLOG_POSTS = [
-  {
-    date: "Feb 2026",
-    title: "Why We Moved to Bare Metal",
-    excerpt:
-      "The surprising economics and performance gains of leaving the cloud for dedicated infrastructure.",
-  },
-  {
-    date: "Jan 2026",
-    title: "Building a Custom Scheduler in Rust",
-    excerpt:
-      "Lessons learned from writing a task scheduler that handles 10M jobs per day with zero downtime.",
-  },
-  {
-    date: "Dec 2025",
-    title: "The Case for Simplicity in System Design",
-    excerpt:
-      "How removing layers of abstraction led to a 40x performance improvement in our core pipeline.",
-  },
-];
-
-const PROJECTS = [
-  {
-    name: "mc-bench",
-    description:
-      "Open-source benchmarking suite for comparing compute performance across cloud providers and hardware configs.",
-    stack: ["Rust", "Python", "Docker"],
-    link: "#",
-  },
-  {
-    name: "lattice",
-    description:
-      "Lightweight service mesh for edge computing environments with minimal resource overhead.",
-    stack: ["Go", "eBPF", "Linux"],
-    link: "#",
-  },
-  {
-    name: "sigil",
-    description:
-      "Cryptographic signing library optimized for embedded systems and IoT devices.",
-    stack: ["C", "Rust", "WASM"],
-    link: "#",
-  },
-];
-
 const SKILLS = [
-  "Rust",
-  "Go",
-  "TypeScript",
   "Python",
   "C/C++",
-  "AWS",
-  "Kubernetes",
-  "Terraform",
+  "Java",
+  "TypeScript",
+  "Algorithms",
+  "Machine Learning",
+  "NLP",
+  "HPC",
+  "CUDA",
   "Linux",
-  "Distributed Systems",
-  "System Design",
-  "Performance Engineering",
+  "Docker",
+  "Git",
 ];
 
 export default function Home() {
@@ -186,9 +141,9 @@ export default function Home() {
               <span className="text-mc-mint">Speed</span>
             </h1>
             <p className="mt-6 text-lg text-mc-gray leading-relaxed max-w-lg">
-              CS PhD student exploring the intersection of systems and
-              performance. I like building things that are fast, elegant,
-              and actually work.
+              CS researcher working across algorithms, AI, and high
+              performance computing. I like building things that are fast,
+              elegant, and actually work.
             </p>
             <div className="mt-8">
               <a
@@ -268,31 +223,8 @@ export default function Home() {
             Blog
           </h2>
           <p className="mt-3 text-mc-gray text-lg max-w-2xl">
-            Thoughts on engineering, infrastructure, and building systems that
-            last.
+            Coming soon.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {BLOG_POSTS.map((post) => (
-              <a
-                key={post.title}
-                href="#"
-                className="group block p-6 rounded-2xl border border-mc-gray/15 hover:border-mc-lavender/50 transition-colors"
-              >
-                <span className="text-xs font-medium text-mc-mint uppercase tracking-wider">
-                  {post.date}
-                </span>
-                <h3 className="mt-3 text-lg font-semibold text-mc-dark group-hover:text-mc-lavender transition-colors leading-snug">
-                  {post.title}
-                </h3>
-                <p className="mt-2 text-sm text-mc-gray leading-relaxed">
-                  {post.excerpt}
-                </p>
-                <span className="mt-4 inline-block text-sm font-medium text-mc-dark/60 group-hover:text-mc-lavender transition-colors">
-                  Read more &rarr;
-                </span>
-              </a>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -303,42 +235,8 @@ export default function Home() {
             Projects
           </h2>
           <p className="mt-3 text-mc-gray text-lg max-w-2xl">
-            Open-source tools and personal projects.
+            Coming soon.
           </p>
-          <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            {PROJECTS.map((project) => (
-              <div
-                key={project.name}
-                className="group p-6 rounded-2xl border border-mc-gray/15 bg-white hover:border-mc-mint/40 transition-colors"
-              >
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-mc-mint" />
-                  <h3 className="text-lg font-mono font-semibold text-mc-dark">
-                    {project.name}
-                  </h3>
-                </div>
-                <p className="mt-3 text-sm text-mc-gray leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {project.stack.map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs font-mono px-2.5 py-1 rounded-md bg-mc-lavender/20 text-mc-dark/70"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <a
-                  href={project.link}
-                  className="mt-4 inline-block text-sm font-medium text-mc-dark/60 group-hover:text-mc-mint transition-colors"
-                >
-                  View on GitHub &rarr;
-                </a>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -350,9 +248,10 @@ export default function Home() {
           </h2>
           <div className="mt-6 flex flex-col md:flex-row gap-6 md:gap-16">
             <p className="flex-1 text-lg text-mc-gray leading-relaxed">
-              I&apos;m a CS PhD student with a freshly minted master&apos;s
-              degree. My research interests span systems, performance
-              engineering, and infrastructure.
+              I&apos;m Luís, a Master&apos;s graduate in Computer Science
+              from the University of Aveiro, heading into a PhD. My research
+              sits at the intersection of algorithms, AI, and high performance
+              computing.
             </p>
             <p className="flex-1 text-lg text-mc-gray leading-relaxed">
               Outside of research, I like tinkering with side projects,
@@ -422,28 +321,22 @@ export default function Home() {
                 </h4>
                 <div className="flex flex-col gap-2">
                   <a
-                    href="#"
+                    href="https://github.com/LukasAfonso"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     GitHub
                   </a>
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/in/lu%C3%ADs-carlos-casanova-afonso-8415521b2"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
                     LinkedIn
                   </a>
                   <a
-                    href="#"
+                    href="https://scholar.google.com/citations?user=BgSpSB0AAAAJ"
                     className="text-sm text-white/60 hover:text-white transition-colors"
                   >
-                    Twitter / X
-                  </a>
-                  <a
-                    href="mailto:hello@machcomputing.com"
-                    className="text-sm text-white/60 hover:text-white transition-colors"
-                  >
-                    Email
+                    Google Scholar
                   </a>
                 </div>
               </div>
