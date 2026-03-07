@@ -14,12 +14,12 @@ function GeometricGrid() {
   return (
     <div className="grid grid-cols-3 gap-2 w-full max-w-xs sm:max-w-sm lg:max-w-md aspect-square">
       {/* Row 1 */}
-      <div className="aspect-square overflow-hidden rounded-2xl">
+      <div className="aspect-square overflow-hidden rounded-2xl geo-a">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <rect x="0" y="0" width="100" height="100" rx="16" fill="#2E282A" />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden flex items-center justify-center">
+      <div className="aspect-square overflow-hidden flex items-center justify-center geo-b">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <rect
             x="50"
@@ -32,14 +32,14 @@ function GeometricGrid() {
           />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden">
+      <div className="aspect-square overflow-hidden geo-c">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <path d="M100,0 A100,100 0 0,1 0,100 L100,100 Z" fill="#98DFAF" />
         </svg>
       </div>
 
       {/* Row 2 */}
-      <div className="aspect-square overflow-hidden flex items-center justify-center">
+      <div className="aspect-square overflow-hidden flex items-center justify-center geo-d">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <rect
             x="8"
@@ -53,29 +53,29 @@ function GeometricGrid() {
           />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden flex items-center justify-center">
+      <div className="aspect-square overflow-hidden flex items-center justify-center geo-e">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <circle cx="50" cy="50" r="46" fill="#8A8D91" />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden">
+      <div className="aspect-square overflow-hidden geo-f">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <path d="M0,0 L100,0 L100,100 A100,100 0 0,0 0,0 Z" fill="#98DFAF" />
         </svg>
       </div>
 
       {/* Row 3 */}
-      <div className="aspect-square overflow-hidden rounded-full">
+      <div className="aspect-square overflow-hidden rounded-full geo-g">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <ellipse cx="50" cy="50" rx="50" ry="50" fill="#B8B3E9" />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden flex items-center justify-center">
+      <div className="aspect-square overflow-hidden flex items-center justify-center geo-h">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <polygon points="50,10 90,90 10,90" fill="#8A8D91" />
         </svg>
       </div>
-      <div className="aspect-square overflow-hidden rounded-full">
+      <div className="aspect-square overflow-hidden rounded-full geo-i">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <ellipse cx="50" cy="50" rx="50" ry="50" fill="#B8B3E9" />
         </svg>
