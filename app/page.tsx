@@ -223,18 +223,18 @@ export default async function Home() {
                 {/* Page content mockup */}
                 <div className="p-6 space-y-4">
                   <div className="flex items-center gap-3">
-                    <div className="w-8 h-8 rounded-lg bg-mc-lavender/30" />
-                    <div className="h-3 w-32 rounded-full bg-mc-dark/10" />
+                    <div className="w-8 h-8 rounded-lg bg-mc-lavender/30 mockup-shimmer" />
+                    <div className="h-3 w-32 rounded-full bg-mc-dark/10 mockup-shimmer" style={{ animationDelay: "0.2s" }} />
                   </div>
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="aspect-[4/3] rounded-lg bg-mc-mint/20" />
-                    <div className="aspect-[4/3] rounded-lg bg-mc-lavender/20" />
-                    <div className="aspect-[4/3] rounded-lg bg-mc-lime/25" />
-                    <div className="aspect-[4/3] rounded-lg bg-mc-gray/10" />
+                    <div className="aspect-[4/3] rounded-lg bg-mc-mint/20 mockup-shimmer" style={{ animationDelay: "0.4s" }} />
+                    <div className="aspect-[4/3] rounded-lg bg-mc-lavender/20 mockup-shimmer" style={{ animationDelay: "0.6s" }} />
+                    <div className="aspect-[4/3] rounded-lg bg-mc-lime/25 mockup-shimmer" style={{ animationDelay: "0.8s" }} />
+                    <div className="aspect-[4/3] rounded-lg bg-mc-gray/10 mockup-shimmer" style={{ animationDelay: "1.0s" }} />
                   </div>
                   <div className="space-y-2 pt-1">
-                    <div className="h-2 w-full rounded-full bg-mc-dark/5" />
-                    <div className="h-2 w-3/4 rounded-full bg-mc-dark/5" />
+                    <div className="h-2 w-full rounded-full bg-mc-dark/5 mockup-shimmer" style={{ animationDelay: "1.2s" }} />
+                    <div className="h-2 w-3/4 rounded-full bg-mc-dark/5 mockup-shimmer" style={{ animationDelay: "1.4s" }} />
                   </div>
                 </div>
               </div>
