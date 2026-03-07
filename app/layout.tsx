@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "MACH COMPUTING",
+  title: "Mach Computing",
   description:
-    "Engineering high-performance computing solutions. Portfolio and projects by MACH COMPUTING.",
+    "Portfolio and projects by Mach Computing.",
 };
 
 export default function RootLayout({
