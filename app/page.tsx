@@ -1,7 +1,10 @@
 import Image from "next/image";
 
+// Revalidate the page every 5 minutes
+export const revalidate = 300;
+
 const NAV_LINKS = [
-  { label: "Portfolio", href: "https://portfolio.machcomputing.com" },
+  { label: "Portfolio", href: "#portfolio" },
   { label: "Blog", href: "#blog" },
   { label: "Projects", href: "#projects" },
   { label: "About", href: "#about" },
@@ -105,9 +108,8 @@ type Project = {
   year: number;
 };
 
-async function fetchProjects(): Promise<Project[]> {
+async function fetchProjects(base: string): Promise<Project[]> {
   try {
-    const base = process.env.PROJECTS_BASE;
     const res = await fetch(`${base}/api/projects`, {
       next: { revalidate: 300 },
     });
@@ -119,7 +121,8 @@ async function fetchProjects(): Promise<Project[]> {
 }
 
 export default async function Home() {
-  const projects = await fetchProjects();
+  const projectsBase = process.env.PROJECTS_BASE ?? "";
+  const projects = await fetchProjects(projectsBase);
 
   return (
     <div className="min-h-screen bg-white">
@@ -261,6 +264,14 @@ export default async function Home() {
           <p className="mt-3 text-mc-gray text-lg max-w-2xl">
             Interactive tools and experiments.
           </p>
+          {projectsBase && (
+            <a
+              href={projectsBase}
+              className="mt-8 inline-flex items-center px-6 py-3 rounded-full bg-mc-dark text-white font-medium text-sm hover:bg-mc-dark/85 transition-colors"
+            >
+              Explore Projects &rarr;
+            </a>
+          )}
           {projects.length > 0 ? (
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
