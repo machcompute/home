@@ -211,6 +211,43 @@ export default async function Home() {
         </div>
       </section>
 
+      {/* About Section */}
+      <section id="about" className="py-20 lg:py-28">
+        <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
+          <h2 className="text-3xl sm:text-4xl font-bold text-mc-dark tracking-tight">
+            About
+          </h2>
+          <div className="mt-6 flex flex-col md:flex-row gap-6 md:gap-16">
+            <p className="flex-1 text-lg text-mc-gray leading-relaxed">
+              I&apos;m Luís, a Master&apos;s graduate in Computer Science
+              from the University of Aveiro, heading into a PhD. My research
+              sits at the intersection of algorithms, AI, and high performance
+              computing.
+            </p>
+            <p className="flex-1 text-lg text-mc-gray leading-relaxed">
+              Outside of research, I like tinkering with side projects,
+              writing about what I learn, and breaking things to understand
+              how they work.
+            </p>
+          </div>
+          <div className="mt-10">
+            <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wider">
+              Technologies & Skills
+            </h3>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {SKILLS.map((skill) => (
+                  <span
+                      key={skill}
+                      className="text-sm font-medium px-3 py-1.5 rounded-full bg-mc-lavender/15 text-mc-dark/80 border border-mc-lavender/20"
+                  >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Portfolio Section */}
       <section id="portfolio" className="py-20 lg:py-28 bg-mc-dark/[0.02]">
         <div className="max-w-7xl mx-auto px-6">
@@ -387,43 +424,6 @@ export default async function Home() {
           ) : (
             <p className="mt-6 text-mc-gray">Coming soon.</p>
           )}
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section id="about" className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-mc-dark tracking-tight">
-            About
-          </h2>
-          <div className="mt-6 flex flex-col md:flex-row gap-6 md:gap-16">
-            <p className="flex-1 text-lg text-mc-gray leading-relaxed">
-              I&apos;m Luís, a Master&apos;s graduate in Computer Science
-              from the University of Aveiro, heading into a PhD. My research
-              sits at the intersection of algorithms, AI, and high performance
-              computing.
-            </p>
-            <p className="flex-1 text-lg text-mc-gray leading-relaxed">
-              Outside of research, I like tinkering with side projects,
-              writing about what I learn, and breaking things to understand
-              how they work.
-            </p>
-          </div>
-          <div className="mt-10">
-            <h3 className="text-sm font-semibold text-mc-dark uppercase tracking-wider">
-              Technologies & Skills
-            </h3>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {SKILLS.map((skill) => (
-                <span
-                  key={skill}
-                  className="text-sm font-medium px-3 py-1.5 rounded-full bg-mc-lavender/15 text-mc-dark/80 border border-mc-lavender/20"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
