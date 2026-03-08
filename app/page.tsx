@@ -108,6 +108,28 @@ type Project = {
   year: number;
 };
 
+type BlogPost = {
+  title: string;
+  slug: string;
+  description: string;
+  date: string;
+  tags: string[];
+  readingTime: number;
+};
+
+async function fetchPosts(base: string): Promise<BlogPost[]> {
+  try {
+    const res = await fetch(`${base}/api/posts`, {
+      next: { revalidate: 300 },
+    });
+    if (!res.ok) return [];
+    const posts: BlogPost[] = await res.json();
+    return posts.slice(0, 3);
+  } catch {
+    return [];
+  }
+}
+
 async function fetchProjects(base: string): Promise<Project[]> {
   try {
     const res = await fetch(`${base}/api/projects`, {
@@ -122,7 +144,9 @@ async function fetchProjects(base: string): Promise<Project[]> {
 
 export default async function Home() {
   const projectsBase = process.env.PROJECTS_BASE ?? "";
+  const blogBase = process.env.BLOG_BASE ?? "";
   const projects = await fetchProjects(projectsBase);
+  const posts = await fetchPosts(blogBase);
 
   return (
     <div className="min-h-screen bg-white">
@@ -250,8 +274,64 @@ export default async function Home() {
             Blog
           </h2>
           <p className="mt-3 text-mc-gray text-lg max-w-2xl">
-            Coming soon.
+            Writing about algorithms, systems, and things I find interesting.
           </p>
+          {blogBase && (
+            <a
+              href={blogBase}
+              className="mt-8 inline-flex items-center px-6 py-3 rounded-full bg-mc-dark text-white font-medium text-sm hover:bg-mc-dark/85 transition-colors"
+            >
+              All Posts &rarr;
+            </a>
+          )}
+          {posts.length > 0 ? (
+            <div className="mt-12 space-y-0 divide-y divide-mc-gray/10">
+              {posts.map((post) => (
+                <a
+                  key={post.slug}
+                  href={`${blogBase}/${post.slug}`}
+                  className="group block py-6 first:pt-0 last:pb-0"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-base font-semibold text-mc-dark leading-snug group-hover:text-mc-lavender transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="mt-1.5 text-sm text-mc-gray line-clamp-2">
+                        {post.description}
+                      </p>
+                      {post.tags.length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-2">
+                          {post.tags.map((tag) => (
+                            <span
+                              key={tag}
+                              className="text-xs font-medium px-2.5 py-1 rounded-full bg-mc-lavender/15 text-mc-dark/70"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                    <div className="shrink-0 text-right">
+                      <span className="text-sm font-mono text-mc-gray/50">
+                        {new Date(post.date).toLocaleDateString("en-US", {
+                          month: "short",
+                          day: "numeric",
+                          year: "numeric",
+                        })}
+                      </span>
+                      <p className="mt-0.5 text-xs text-mc-gray/40">
+                        {post.readingTime} min read
+                      </p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          ) : (
+            <p className="mt-6 text-mc-gray">Coming soon.</p>
+          )}
         </div>
       </section>
 
