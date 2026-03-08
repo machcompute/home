@@ -4,10 +4,10 @@ import Image from "next/image";
 export const revalidate = 300;
 
 const NAV_LINKS = [
+  { label: "About", href: "#about" },
   { label: "Portfolio", href: "#portfolio" },
   { label: "Blog", href: "#blog" },
   { label: "Projects", href: "#projects" },
-  { label: "About", href: "#about" },
 ];
 
 function GeometricGrid() {
