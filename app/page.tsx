@@ -87,7 +87,7 @@ function GeometricGrid() {
 const SKILLS = [
   "Python",
   "C/C++",
-  "Java",
+  "GoLang",
   "TypeScript",
   "Algorithms",
   "Machine Learning",
