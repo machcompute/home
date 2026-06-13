@@ -8,7 +8,7 @@ const NAV_LINKS = [
   { label: "Portfolio", href: "#portfolio" },
   { label: "Blog", href: "#blog" },
   { label: "Projects", href: "#projects" },
-  { label: "Finances", href: "#finances" },
+  { label: "Apps", href: "/apps" },
 ];
 
 function GeometricGrid() {
@@ -146,6 +146,8 @@ async function fetchProjects(base: string): Promise<Project[]> {
 export default async function Home() {
   const projectsBase = process.env.PROJECTS_BASE ?? "";
   const blogBase = process.env.BLOG_BASE ?? "";
+  const portfolioBase =
+    process.env.PORTFOLIO_BASE ?? "https://portfolio.machcomputing.com";
   const projects = await fetchProjects(projectsBase);
   const posts = await fetchPosts(blogBase);
 
@@ -199,7 +201,7 @@ export default async function Home() {
             </p>
             <div className="mt-8">
               <a
-                href="https://portfolio.machcomputing.com"
+                href={portfolioBase}
                 className="inline-flex items-center px-6 py-3 rounded-full bg-mc-dark text-white font-medium text-sm hover:bg-mc-dark/85 transition-colors"
               >
                 View Portfolio
@@ -263,7 +265,7 @@ export default async function Home() {
                 beyond.
               </p>
               <a
-                href="https://portfolio.machcomputing.com"
+                href={portfolioBase}
                 className="mt-8 inline-flex items-center px-6 py-3 rounded-full bg-mc-dark text-white font-medium text-sm hover:bg-mc-dark/85 transition-colors"
               >
                 Browse Portfolio &rarr;
@@ -425,25 +427,6 @@ export default async function Home() {
           ) : (
             <p className="mt-6 text-mc-gray">Coming soon.</p>
           )}
-        </div>
-      </section>
-
-      {/* Finances Section */}
-      <section id="finances" className="py-20 lg:py-28">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl sm:text-4xl font-bold text-mc-dark tracking-tight">
-            Finances
-          </h2>
-          <p className="mt-3 text-mc-gray text-lg max-w-2xl">
-            Personal finance tracker. Log income and expenses, see trends and
-            moving averages, OFX import/export.
-          </p>
-          <a
-            href="https://finances.machcomputing.com"
-            className="mt-8 inline-flex items-center px-6 py-3 rounded-full bg-mc-dark text-white font-medium text-sm hover:bg-mc-dark/85 transition-colors"
-          >
-            Open Finances &rarr;
-          </a>
         </div>
       </section>
 
